@@ -101,9 +101,11 @@ const Weather = () => {
                             <div class="h-[100%] w-[15%] rounded rounded-[2vh]">
                                 <div
                                     class="h-[20%] w-[100%] flex justify-center item-center text-slate-100 text-bold text-xl">
+                                        9:00 AM
                                 </div>
                                 <div class="h-[30%] w-[100%]  flex justify-center item-center text-white text-6xl">
                                     <i class="fa-solid fa-cloud-sun"></i>
+                                    
                                 </div>
                                 <div
                                     class=" h-[20%] w-[100%] pl-4 text-[5vh] text-bold text-white flex justify-center item-center">
