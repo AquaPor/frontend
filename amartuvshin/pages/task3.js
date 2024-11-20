@@ -1,7 +1,18 @@
 import { useState } from 'react';
 
-export default function Task1() {
+function Task1() {
+  const [search, setSearch] = useState("");
+
   return (
-    <div>Hello World!</div>
+    <div>
+      <input 
+        type='search' 
+        onChange={(e) => setSearch(e.target.value)} 
+        value={search}
+      />
+      <p>search: {search}</p>
+    </div>
   );
 }
+
+export default Task1;
