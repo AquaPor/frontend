@@ -1,43 +1,53 @@
 import { useState } from 'react';
 
 const data = [
-  { id: 1, name: "test", email: "test@gmail.com" },
-  { id: 2, name: "test2", email: "test2@gmail.com" },
-  { id: 3, name: "test3", email: "test3@gmail.com" },
-  { id: 4, name: "test4", email: "test4@gmail.com" },
+  { id: 1, desc: "Нэгдүгээр Нийтлэл" },
+  { id: 2, desc: "Хоёрдугаар Нийтлэл" },
+  { id: 3, desc: "Гуравдугаар Нийтлэл" },
+  { id: 4, desc: "Дөрөвдүгээр Нийтлэл" },
 ];
 
 function Task3() {
   const [grid, setGrid] = useState(false);
 
   return (
-    <div className="flex justify-center items-center h-screen w-full bg-gray-100">
-      <div className="flex flex-col items-center bg-white p-8 rounded-lg shadow-lg">
+    <div className='h-screen w-full bg-white flex justify-center items-start'>
+      <div className='w-[80%] relative'>
+        
         <button
-          onClick={() => setGrid(!grid)} 
-          className="mb-4 px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition-all"
+          className='absolute top-4 right-4 text-white px-6 py-3 bg-blue-500 rounded-md shadow-lg transition duration-300 hover:bg-blue-400'
+          onClick={() => setGrid(!grid)}
         >
-          Toggle Layout
+          Toggle Grid
         </button>
-        <div
-          className={`grid gap-4 ${grid ? 'grid-cols-2' : 'grid-cols-1'}`}
-        >
-          {data.map((item) => (
-            <div
-              key={item.id}
-              className="p-4 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all"
-            >
-              <div className="text-xl font-semibold text-gray-800 mb-2">
-                ID: <span className="font-normal text-gray-600">{item.id}</span>
+
+        <div className='text-black mt-6'>
+          <h1 className='text-2xl font-semibold mb-6'>Нийтлэлүүд</h1>
+
+          <div
+            className='text-black'
+            style={{
+              display: grid ? 'grid' : 'block',
+              gridTemplateColumns: grid ? 'repeat(2, 1fr)' : 'none',
+              gap: '20px',
+            }}
+          >
+            {data.map(item => (
+              <div
+                key={item.id}
+                className="p-6 
+                border border-gray-200 
+                flex justify-center items-center 
+                min-h-[100px] bg-gray-50 rounded-lg shadow-md 
+                transition duration-300 hover:shadow-xl"
+              >
+                <div className="text-center">
+                  <h3 className="text-xl font-semibold mb-2">{item.id}</h3>
+                  <p className="text-sm text-gray-600">{item.desc}</p>
+                </div>
               </div>
-              <div className="text-xl font-semibold text-gray-800 mb-2">
-                Name: <span className="font-normal text-gray-600">{item.name}</span>
-              </div>
-              <div className="text-xl font-semibold text-gray-800">
-                Email: <span className="font-normal text-gray-600">{item.email}</span>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
