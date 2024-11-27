@@ -35,11 +35,7 @@ function Task3() {
             {data.map(item => (
               <div
                 key={item.id}
-                className="p-6 
-                border border-gray-200 
-                flex justify-center items-center 
-                min-h-[100px] bg-gray-50 rounded-lg shadow-md 
-                transition duration-300 hover:shadow-xl"
+                className="p-6 border border-gray-200 flex justify-center items-center min-h-[100px] bg-gray-50 rounded-lg shadow-md transition duration-300 hover:shadow-xl"
               >
                 <div className="text-center">
                   <h3 className="text-xl font-semibold mb-2">{item.id}</h3>
