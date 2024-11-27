@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Task3() {
+function Task2() {
   const [search, setSearch] = useState("");
 
   return (
@@ -21,5 +21,5 @@ function Task3() {
   );
 }
 
-export default Task3;
+export default Task2;
 
