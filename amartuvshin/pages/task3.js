@@ -1,18 +1,27 @@
 import { useState } from 'react';
 
-function Task1() {
+function Task3() {
   const [search, setSearch] = useState("");
 
   return (
-    <div>
-      <input 
-        type='search' 
-        onChange={(e) => setSearch(e.target.value)} 
-        value={search}
-      />
-      <p>search: {search}</p>
+    <div className='bg-red-400 h-[100vh] w-[100%] flex justify-center items-center flex-col'>
+      {/* First Column: Text */}
+      <div className="mb-4">
+        <p>Search: {search}</p>
+      </div>
+
+      {/* Second Column: Input */}
+      <div>
+        <input 
+          type='search' 
+          onChange={(e) => setSearch(e.target.value)} 
+          value={search}
+          className="p-2 border-2 rounded-md text-black"
+        />
+      </div>
     </div>
   );
 }
 
-export default Task1;
+export default Task3;
+
