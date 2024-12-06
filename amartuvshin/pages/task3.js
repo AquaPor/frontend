@@ -7,7 +7,7 @@ const data = [
   { id: 4, desc: "Fourth Article", alive: false },
 ];
 
-function CombinedTask() {
+function Task3() {
   const [grid, setGrid] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   
@@ -83,4 +83,4 @@ function CombinedTask() {
   );
 }
 
-export default CombinedTask;
+export default Task3;
