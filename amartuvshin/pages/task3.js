@@ -7,34 +7,63 @@ const data = [
   { id: 4, desc: "Fourth Article", alive: false },
 ];
 
-function Task3() {
+function CombinedTask() {
+  const [grid, setGrid] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  
   const filteredData = data.filter(item =>
     item.desc.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  return (
-    <div className="h-screen w-full bg-white flex justify-center items-start">
-      <div className="w-[80%] relative">
-        
-        <input
-          type="text"
-          className="w-full mt-4 mb-4 px-6 py-3 border border-gray-300 rounded-md text-black"
-          placeholder="Search"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
+  const containerStyles = () => {
+    let displayStyle = 'block';
+    let gridTemplateColumns = 'none';
 
-        <div className="text-black">
-          
-          <div className="text-black">
+    if (grid) {
+      displayStyle = 'grid';
+      gridTemplateColumns = 'repeat(2, 1fr)';
+    }
+
+    return {
+      display: displayStyle,
+      gridTemplateColumns: gridTemplateColumns,
+      gap: '20px',
+    };
+  };
+
+  return (
+    <div className="h-screen w-full bg-gray-100 flex justify-center items-start p-6">
+      <div className="w-[80%] relative bg-white p-6 rounded-lg shadow-md">
+
+        <div className="flex justify-between items-center mb-6">
+          <input
+            type="text"
+            className="w-3/4 px-4 py-3 border border-gray-300 rounded-md text-black"
+            placeholder="Search Articles"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <button
+            className="ml-4 px-6 py-3 bg-blue-500 text-white rounded-md shadow-lg transition duration-300 hover:bg-blue-400"
+            onClick={() => setGrid(!grid)}
+          >
+            Toggle Grid
+          </button>
+        </div>
+        <div className="text-black mt-6">
+          <h1 className="text-2xl font-semibold mb-6">Articles</h1>
+
+          <div
+            className="text-black"
+            style={containerStyles()}
+          >
             {filteredData.length > 0 ? (
               filteredData.map(item => (
                 <div
                   key={item.id}
-                  className="p-4 border border-gray-200 flex items-start min-h-[20px] bg-gray-50 rounded-lg mb-4"
+                  className="p-6 border border-gray-200 flex justify-center items-center min-h-[100px] bg-gray-50 rounded-lg shadow-md transition duration-300 hover:shadow-xl"
                 >
-                  <div className="text-left w-full">
+                  <div className="text-center">
                     <h3 className="text-xl font-semibold mb-2">{item.id}</h3>
                     <p className="text-sm text-gray-600">{item.desc}</p>
                   </div>
@@ -42,9 +71,9 @@ function Task3() {
               ))
             ) : (
               <div
-                className="p-4 border border-gray-200 flex items-start min-h-[80px] bg-gray-50 rounded-lg mb-4"
+                className="p-6 border border-gray-200 flex justify-center items-center min-h-[100px] bg-gray-50 rounded-lg shadow-md"
               >
-                <p className="text-left text-gray-500 w-full">No results found.</p>
+                <p className="text-gray-500">No results found.</p>
               </div>
             )}
           </div>
@@ -54,4 +83,4 @@ function Task3() {
   );
 }
 
-export default Task3;
+export default CombinedTask;
