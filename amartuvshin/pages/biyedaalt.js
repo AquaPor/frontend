@@ -27,11 +27,11 @@ const data = [
 export default function biyedaalt() {
   const router = useRouter();
   return (
-    <div>
+    <div className="bg-slate-700 h-[90vh]">
       <p className="text-center font-bold text-xl my-10">Бие даалт</p>
       <div className="flex items-center justify-center">
         <button
-          className="border rounded-lg bg-gray-200 p-4 font-bold mb-2 hover:bg-blue-200"
+          className="border rounded-lg bg-gray-600 p-4 font-bold mb-2 "
           onClick={() => {
             router.push("biyedaalt2");
           }}

@@ -64,15 +64,15 @@ export default function Home() {
         <div className="bg-slate-700 relative w-full h-full flex flex-col items-center justify-center bg-gray-100 rounded-lg shadow-md">
           <button
             className="mb-4 p-4 font-bold text-lg border rounded-lg bg-gray-500 opacity-80 hover:opacity-100"
-            onClick={() => handleNavigation('cv')}
+            onClick={() => handleNavigation('biyedaalt')}
           >
-            Go to CV
+            Go to Biyedaalt
           </button>
           <Image
-            src="/aquacv.png"
+            src="/aquapfp.png"
             alt="Aqua"
-            width={500}
-            height={120}
+            width={400}
+            height={50}
             objectFit="cover"
           />
         </div>

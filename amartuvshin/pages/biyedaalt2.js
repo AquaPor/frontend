@@ -5,7 +5,7 @@ export default function biyedaalt2() {
   return (
     <div>
       <button
-        className="border rounded-lg bg-gray-200 p-4 font-bold mb-2 hover:bg-blue-200"
+        className="border rounded-lg bg-gray-600 p-4 font-bold"
         onClick={() => {
           router.back();
         }}
