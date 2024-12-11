@@ -40,22 +40,29 @@ export default function Biyedaalt() {
           <div className="flex flex-wrap justify-between items-center mb-4">
             <h2 className="text-xl font-bold">Students</h2>
             <div className="flex space-x-2">
-              <button
-                className={`py-1 px-3 rounded ${
-                  view === "list" ? "bg-blue-600 text-white" : "bg-gray-200"
-                }`}
-                onClick={() => setView("list")}
-              >
-                List View
-              </button>
-              <button
-                className={`py-1 px-3 rounded ${
-                  view === "grid" ? "bg-blue-600 text-white" : "bg-gray-200"
-                }`}
-                onClick={() => setView("grid")}
-              >
-                Grid View
-              </button>
+            <button
+  className={`py-1 px-3 rounded ${
+    (() => {
+      if (view === "list") return "bg-blue-600 text-white";
+      return "bg-gray-200";
+    })()
+  }`}
+  onClick={() => setView("list")}
+>
+  List View
+</button>
+<button
+  className={`py-1 px-3 rounded ${
+    (() => {
+      if (view === "grid") return "bg-blue-600 text-white";
+      return "bg-gray-200";
+    })()
+  }`}
+  onClick={() => setView("grid")}
+>
+  Grid View
+</button>
+
             </div>
           </div>
           <input
