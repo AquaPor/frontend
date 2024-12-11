@@ -55,7 +55,7 @@ export default function Home() {
           <Image
             src="/aquaweather.png"
             alt="Aqua"
-            width={600}
+            width={500}
             height={120}
             objectFit="cover"
           />
