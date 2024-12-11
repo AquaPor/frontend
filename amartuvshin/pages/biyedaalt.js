@@ -36,7 +36,7 @@ export default function biyedaalt() {
             router.push("biyedaalt2");
           }}
         >
-          Week ruu shiljine
+        biyedaalt2luu
         </button>
       </div>
       <div className="flex items-center flex-col space-y-4 border rounde-lg mx-20">

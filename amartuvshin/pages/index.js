@@ -1,67 +1,117 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 export default function Home() {
+  const router = useRouter();
+
+  const handleNavigation = (url) => {
+    router.push(url);
+  };
+
   return (
-    <div className="flex justify-center items-center h-screen w-full bg-[#f0f0f0]">
-      <div className="h-[98vh] w-[50%] bg-white p-8 rounded-lg shadow-lg">
-        <div className="flex items-center mb-8">
-          <div className="w-[150px] h-[150px] mr-6">
-            <Image
-              src="/aquapfp.png"
-              alt="Aqua"
-              width={120}
-              height={120}
-              objectFit="cover"
-              className="rounded-full"
-            />
-          </div>
-          <div>
-            <h1 className="text-4xl font-bold text-[#574a28]">Amartuvshin Sergelen</h1>
-            <h2 className="text-2xl text-[#574a28]">Aqua</h2>
-          </div>
+    <div className="container mx-auto p-4 h-screen">
+      <div className="grid grid-cols-3 gap-4 h-full">
+        
+        <div className="bg-slate-700 relative w-full h-full flex flex-col items-center justify-center bg-gray-100 rounded-lg shadow-md">
+          <button
+            className="mb-4 p-4 font-bold text-lg border rounded-lg bg-gray-500 opacity-80 hover:opacity-100"
+            onClick={() => handleNavigation('cv')}
+          >
+            Go to CV
+          </button>
+          <Image
+            src="/aquacv.png"
+            alt="Aqua"
+            width={500}
+            height={120}
+            objectFit="cover"
+          />
         </div>
 
-        <div className="mb-8">
-  <h3 className="text-2xl font-semibold text-[#574a28] mb-4">Summary</h3>
-  <p className="text-lg text-gray-700">
-    Amartuvshin is a skilled web developer with a passion for gaming, often dedicating a significant amount of time to playing games.
-  </p>
-</div>
 
-<div className="mb-8">
-  <h3 className="text-2xl font-semibold text-[#574a28] mb-4">Experience</h3>
-  <div className="mb-4">
-    <h4 className="text-xl font-bold text-[#574a28]">Founder & CEO - Amartuvshin Web Solutions</h4>
-    <p className="text-md text-gray-700">2015 - Present</p>
-    <ul className="list-disc pl-6 text-gray-700">
-      <li>Founded Amartuvshin Web Solutions to provide custom web development services to businesses.</li>
-      <li>Specialized in creating responsive websites and web applications.</li>
-      <li>Worked on projects ranging from e-commerce platforms to interactive media sites.</li>
-    </ul>
-  </div>
-</div>
-
-<div className="mb-8">
-  <h3 className="text-2xl font-semibold text-[#574a28] mb-4">Skills</h3>
-  <ul className="list-inside list-disc text-lg text-gray-700">
-    <li>Web Development (HTML, CSS, JavaScript, React)</li>
-    <li>Gaming (Competitive gaming, Game design principles)</li>
-    <li>Problem Solving & Debugging</li>
-    <li>Project Management & Team Leadership</li>
-    <li>UI/UX Design</li>
-  </ul>
-</div>
-
-
-        <div>
-          <h3 className="text-2xl font-semibold text-[#574a28] mb-4">Contact</h3>
-          <p className="text-lg text-gray-700">Email: amartuvshin@gmail.com</p>
-          <p className="text-lg text-gray-700">Website: <a href="https://www.mrbeast.com" className="text-blue-500">www.amartuvshin.com</a></p>
+        <div className="bg-slate-700 relative w-full h-full flex flex-col items-center justify-center bg-gray-100 rounded-lg shadow-md">
+          <button
+            className="mb-4 p-4 font-bold text-lg border rounded-lg bg-gray-500 opacity-80 hover:opacity-100"
+            onClick={() => handleNavigation('task1')}
+          >
+            Go to Task 1
+          </button>
+          <Image
+            src="/changecoloraqua.png"
+            alt="Aqua"
+            width={500}
+            height={120}
+            objectFit="cover"
+          />
         </div>
+
+        <div className="bg-slate-700 relative w-full h-full flex flex-col items-center justify-center bg-gray-100 rounded-lg shadow-md">
+          <button
+            className="mb-4 p-4 font-bold text-lg border rounded-lg bg-gray-500 opacity-80 hover:opacity-100"
+            onClick={() => handleNavigation('task2')}
+          >
+            Go to Task 2
+          </button>
+          <Image
+            src="/task2aqua.png"
+            alt="Aqua"
+            width={600}
+            height={120}
+            objectFit="cover"
+          />
+        </div>
+
+        <div className="bg-slate-700 relative w-full h-full flex flex-col items-center justify-center bg-gray-100 rounded-lg shadow-md">
+          <button
+            className="mb-4 p-4 font-bold text-lg border rounded-lg bg-gray-500 opacity-80 hover:opacity-100"
+            onClick={() => handleNavigation('weather')}
+          >
+            Go to Weather
+          </button>
+          <Image
+            src="/aquaweather.png"
+            alt="Aqua"
+            width={500}
+            height={120}
+            objectFit="cover"
+          />
+        </div>
+
+        <div className="bg-slate-700 relative w-full h-full flex flex-col items-center justify-center bg-gray-100 rounded-lg shadow-md">
+          <button
+            className="mb-4 p-4 font-bold text-lg border rounded-lg bg-gray-500 opacity-80 hover:opacity-100"
+            onClick={() => handleNavigation('cv')}
+          >
+            Go to CV
+          </button>
+          <Image
+            src="/aquapfp.png"
+            alt="Aqua"
+            width={120}
+            height={120}
+            objectFit="cover"
+            className="rounded-full"
+          />
+        </div>
+
+        <div className="bg-slate-700 relative w-full h-full flex flex-col items-center justify-center bg-gray-100 rounded-lg shadow-md">
+          <button
+            className="mb-4 p-4 font-bold text-lg border rounded-lg bg-gray-500 opacity-80 hover:opacity-100"
+            onClick={() => handleNavigation('cv')}
+          >
+            Go to CV
+          </button>
+          <Image
+            src="/aquapfp.png"
+            alt="Aqua"
+            width={120}
+            height={120}
+            objectFit="cover"
+            className="rounded-full"
+          />
+        </div>
+
       </div>
     </div>
   );
 }
-
-
-
