@@ -1,11 +1,19 @@
 import React from 'react';
-
+import { useRouter } from 'next/router';
 const Weather = () => {
-
+    const router = useRouter();
   
   return (
     
     <div class="h-[100vh] w-[100%] bg-slate-800 flex justify-center items-center">
+        <button
+        className="border rounded-lg bg-gray-600 font-bold p-4 absolute top-4 left-4"
+        onClick={() => {
+          router.back();
+        }}
+      >
+        back
+      </button>
         <div class="h-[85vh] w-[70%] bg-slate-900 rounded rounded-[2vh] flex ">
             <div class="h-[100%] w-[10%] rounded rounded-[2vh] flex justify-center items-center">
                 <div class="h-[95%] w-[80%] bg-slate-800 rounded rounded-[2vh]">
@@ -168,7 +176,7 @@ const Weather = () => {
             </div>
             <div class="h-[30vh] w-[100%] rounded rounded-[2vh] flex flex-col justify-center items-center ">
                 <button
-                    class="h-[3vh] w-[10vh] bg-blue-500 rounded rounded-xl absolute bottom-[30vh] right-[67vh] text-white text-lg">See
+                    class="h-[3vh] w-[10vh] bg-blue-500 rounded rounded-xl absolute bottom-[30vh] right-[70vh] text-white text-lg">See
                     More</button>
                 <div class="h-[90%] w-[95%] bg-slate-700 rounded rounded-[2vh] ">
                     <div class="h-[15%] w-[100%] rounded rounded-[2vh]">

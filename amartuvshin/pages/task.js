@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const data = [
   { id: 1, desc: "First Article", alive: true },
@@ -7,7 +8,8 @@ const data = [
   { id: 4, desc: "Fourth Article", alive: false },
 ];
 
-function Task2() {
+function Task() {
+  const router = useRouter();
   const [grid, setGrid] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   
@@ -16,25 +18,25 @@ function Task2() {
   );
 
   const containerStyles = () => {
-    let displayStyle = 'block';
-    let gridTemplateColumns = 'none';
-
-    if (grid) {
-      displayStyle = 'grid';
-      gridTemplateColumns = 'repeat(2, 1fr)';
-    }
-
     return {
-      display: displayStyle,
-      gridTemplateColumns: gridTemplateColumns,
+      display: grid ? 'grid' : 'block',
+      gridTemplateColumns: grid ? 'repeat(2, 1fr)' : 'none',
       gap: '20px',
     };
   };
 
   return (
     <div className="h-screen w-full bg-gray-100 flex justify-center items-start p-6">
-      <div className="w-[80%] relative bg-white p-6 rounded-lg shadow-md">
+      <button
+        className="border rounded-lg bg-gray-600 font-bold p-4 absolute top-4 left-4"
+        onClick={() => {
+          router.back();
+        }}
+      >
+        back
+      </button>
 
+      <div className="w-[80%] relative bg-white p-6 rounded-lg shadow-md">
         <div className="flex justify-between items-center mb-6">
           <input
             type="text"
@@ -50,6 +52,7 @@ function Task2() {
             Toggle Grid
           </button>
         </div>
+
         <div className="text-black mt-6">
           <h1 className="text-2xl font-semibold mb-6">Articles</h1>
 
@@ -61,7 +64,7 @@ function Task2() {
               filteredData.map(item => (
                 <div
                   key={item.id}
-                  className="p-6 border border-gray-200 flex justify-center items-center min-h-[100px] bg-gray-50 rounded-lg shadow-md transition duration-300 hover:shadow-xl"
+                  className="p-6 border border-gray-200 flex justify-center items-center min-h-[150px] bg-gray-50 rounded-lg shadow-md transition duration-300 hover:shadow-xl"
                 >
                   <div className="text-center">
                     <h3 className="text-xl font-semibold mb-2">{item.id}</h3>
@@ -71,7 +74,7 @@ function Task2() {
               ))
             ) : (
               <div
-                className="p-6 border border-gray-200 flex justify-center items-center min-h-[100px] bg-gray-50 rounded-lg shadow-md"
+                className="p-6 border border-gray-200 flex justify-center items-center min-h-[150px] bg-gray-50 rounded-lg shadow-md"
               >
                 <p className="text-gray-500">No results found.</p>
               </div>
@@ -83,4 +86,4 @@ function Task2() {
   );
 }
 
-export default Task2;
+export default Task;
