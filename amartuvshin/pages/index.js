@@ -32,30 +32,14 @@ export default function Home() {
         <div className="bg-slate-700 relative w-full h-full flex flex-col items-center justify-center bg-gray-100 rounded-lg shadow-md">
           <button
             className="mb-4 p-4 font-bold text-lg border rounded-lg bg-gray-500 opacity-80 hover:opacity-100"
-            onClick={() => handleNavigation('task1')}
+            onClick={() => handleNavigation('task')}
           >
-            Go to Task 1
-          </button>
-          <Image
-            src="/changecoloraqua.png"
-            alt="Aqua"
-            width={500}
-            height={120}
-            objectFit="cover"
-          />
-        </div>
-
-        <div className="bg-slate-700 relative w-full h-full flex flex-col items-center justify-center bg-gray-100 rounded-lg shadow-md">
-          <button
-            className="mb-4 p-4 font-bold text-lg border rounded-lg bg-gray-500 opacity-80 hover:opacity-100"
-            onClick={() => handleNavigation('task2')}
-          >
-            Go to Task 2
+            Go to Task
           </button>
           <Image
             src="/task2aqua.png"
             alt="Aqua"
-            width={600}
+            width={500}
             height={120}
             objectFit="cover"
           />
@@ -71,6 +55,22 @@ export default function Home() {
           <Image
             src="/aquaweather.png"
             alt="Aqua"
+            width={600}
+            height={120}
+            objectFit="cover"
+          />
+        </div>
+
+        <div className="bg-slate-700 relative w-full h-full flex flex-col items-center justify-center bg-gray-100 rounded-lg shadow-md">
+          <button
+            className="mb-4 p-4 font-bold text-lg border rounded-lg bg-gray-500 opacity-80 hover:opacity-100"
+            onClick={() => handleNavigation('cv')}
+          >
+            Go to CV
+          </button>
+          <Image
+            src="/aquacv.png"
+            alt="Aqua"
             width={500}
             height={120}
             objectFit="cover"
@@ -85,12 +85,11 @@ export default function Home() {
             Go to CV
           </button>
           <Image
-            src="/aquapfp.png"
+            src="/aquacv.png"
             alt="Aqua"
-            width={120}
+            width={500}
             height={120}
             objectFit="cover"
-            className="rounded-full"
           />
         </div>
 
@@ -102,12 +101,11 @@ export default function Home() {
             Go to CV
           </button>
           <Image
-            src="/aquapfp.png"
+            src="/aquacv.png"
             alt="Aqua"
-            width={120}
+            width={500}
             height={120}
             objectFit="cover"
-            className="rounded-full"
           />
         </div>
 
