@@ -33,36 +33,37 @@ export default function Biyedaalt() {
     student.firstname.toLowerCase().includes(search.toLowerCase())
   );
 
-  return (
-    <div className="bg-gray-100 min-h-screen flex flex-col text-black w-full">
-      <main className="flex-grow p-6 space-y-6">
-        <section className="bg-white p-6 rounded-lg shadow-md w-full">
-          <div className="flex flex-wrap justify-between items-center mb-4">
-            <h2 className="text-xl font-bold">Students</h2>
-            <div className="flex space-x-2">
-            <button
-  className={`py-1 px-3 rounded ${
-    (() => {
-      if (view === "list") return "bg-blue-600 text-white";
-      return "bg-gray-200";
-    })()
-  }`}
-  onClick={() => setView("list")}
->
-  List View
-</button>
-<button
-  className={`py-1 px-3 rounded ${
-    (() => {
-      if (view === "grid") return "bg-blue-600 text-white";
-      return "bg-gray-200";
-    })()
-  }`}
-  onClick={() => setView("grid")}
->
-  Grid View
-</button>
+  // Assign button styles based on current view
+  let listButtonClass = "py-2 px-6 rounded-full text-lg font-medium transition duration-300 ease-in-out";
+  let gridButtonClass = "py-2 px-6 rounded-full text-lg font-medium transition duration-300 ease-in-out";
 
+  if (view === "list") {
+    listButtonClass += " bg-indigo-600 text-white shadow-lg";
+    gridButtonClass += " bg-gray-200 text-gray-800 hover:bg-indigo-100";
+  } else {
+    listButtonClass += " bg-gray-200 text-gray-800 hover:bg-indigo-100";
+    gridButtonClass += " bg-indigo-600 text-white shadow-lg";
+  }
+
+  return (
+    <div className="bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 min-h-screen flex flex-col text-black w-full">
+      <main className="flex-grow p-8 space-y-8">
+        <section className="bg-white p-6 rounded-xl shadow-lg w-full">
+          <div className="flex flex-wrap justify-between items-center mb-6">
+            <h2 className="text-3xl font-bold text-indigo-800">Students</h2>
+            <div className="flex space-x-4">
+              <button
+                className={listButtonClass}
+                onClick={() => setView("list")}
+              >
+                List View
+              </button>
+              <button
+                className={gridButtonClass}
+                onClick={() => setView("grid")}
+              >
+                Grid View
+              </button>
             </div>
           </div>
           <input
@@ -70,33 +71,27 @@ export default function Biyedaalt() {
             placeholder="Search by name"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full p-2 mb-4 border rounded shadow-sm focus:outline-none focus:ring focus:border-blue-500"
+            className="w-full p-3 mb-6 border-2 border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
           />
           {view === "list" ? (
-            <div className="flex flex-wrap -mx-2">
+            <div className="flex flex-wrap -mx-4">
               {filteredData.map((student) => (
-                <div
-                  key={student.id}
-                  className="w-full sm:w-1/2 lg:w-1/3 p-2"
-                >
-                  <div className="p-4 bg-gray-200 rounded shadow-sm flex flex-col">
-                    <span className="font-bold">{student.firstname}</span>
-                    <span>Age: {student.age}</span>
-                    <span>Hobby: {student.hobby}</span>
+                <div key={student.id} className="w-full sm:w-1/2 lg:w-1/3 p-4">
+                  <div className="p-6 bg-gray-200 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <h3 className="text-xl font-bold text-indigo-700">{student.firstname}</h3>
+                    <p className="text-md text-gray-700">Age: {student.age}</p>
+                    <p className="text-md text-gray-700">Hobby: {student.hobby}</p>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {filteredData.map((student) => (
-                <div
-                  key={student.id}
-                  className="p-4 bg-gray-200 rounded shadow-sm flex flex-col items-center"
-                >
-                  <span className="font-bold">{student.firstname}</span>
-                  <span>Age: {student.age}</span>
-                  <span>Hobby: {student.hobby}</span>
+                <div key={student.id} className="p-6 bg-gray-200 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+                  <h3 className="text-xl font-bold text-indigo-700">{student.firstname}</h3>
+                  <p className="text-md text-gray-700">Age: {student.age}</p>
+                  <p className="text-md text-gray-700">Hobby: {student.hobby}</p>
                 </div>
               ))}
             </div>
