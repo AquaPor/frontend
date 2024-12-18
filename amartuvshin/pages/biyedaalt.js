@@ -33,7 +33,6 @@ export default function Biyedaalt() {
     student.firstname.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Assign button styles based on current view
   let listButtonClass = "py-2 px-6 rounded-full text-lg font-medium transition duration-300 ease-in-out";
   let gridButtonClass = "py-2 px-6 rounded-full text-lg font-medium transition duration-300 ease-in-out";
 
@@ -73,27 +72,35 @@ export default function Biyedaalt() {
             onChange={(e) => setSearch(e.target.value)}
             className="w-full p-3 mb-6 border-2 border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
           />
-          {view === "list" ? (
-            <div className="flex flex-wrap -mx-4">
-              {filteredData.map((student) => (
-                <div key={student.id} className="w-full sm:w-1/2 lg:w-1/3 p-4">
-                  <div className="p-6 bg-gray-200 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
-                    <h3 className="text-xl font-bold text-indigo-700">{student.firstname}</h3>
-                    <p className="text-md text-gray-700">Age: {student.age}</p>
-                    <p className="text-md text-gray-700">Hobby: {student.hobby}</p>
-                  </div>
-                </div>
-              ))}
+          {filteredData.length === 0 ? (
+            <div className="text-center text-lg text-gray-600">
+              <p>No results found. Try searching for another name.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {filteredData.map((student) => (
-                <div key={student.id} className="p-6 bg-gray-200 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
-                  <h3 className="text-xl font-bold text-indigo-700">{student.firstname}</h3>
-                  <p className="text-md text-gray-700">Age: {student.age}</p>
-                  <p className="text-md text-gray-700">Hobby: {student.hobby}</p>
+            <div>
+              {view === "list" ? (
+                <div className="flex flex-wrap -mx-4">
+                  {filteredData.map((student) => (
+                    <div key={student.id} className="w-full sm:w-1/2 lg:w-1/3 p-4">
+                      <div className="p-6 bg-gray-200 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+                        <h3 className="text-xl font-bold text-indigo-700">{student.firstname}</h3>
+                        <p className="text-md text-gray-700">Age: {student.age}</p>
+                        <p className="text-md text-gray-700">Hobby: {student.hobby}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              ) : (
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {filteredData.map((student) => (
+                    <div key={student.id} className="p-6 bg-gray-200 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+                      <h3 className="text-xl font-bold text-indigo-700">{student.firstname}</h3>
+                      <p className="text-md text-gray-700">Age: {student.age}</p>
+                      <p className="text-md text-gray-700">Hobby: {student.hobby}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </section>
