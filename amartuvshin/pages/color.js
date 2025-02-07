@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 export default function Home() {
   const [bgColor, setBgColor] = useState("pink");
+  const [data, setData] = useState(null);
 
   const jsonData = [
     { id: 1, color: 'red', bgColor: 'bg-red-500' },
@@ -10,6 +11,13 @@ export default function Home() {
   ];
 
   useEffect(() => {
+    fetch('https://mongol-api-rest.vercel.app/clothes')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setData(data);
+      })
+      .catch(error => console.error('Error fetching data:', error));
     setBgColor("pink");
   }, []);
 
