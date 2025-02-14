@@ -15,11 +15,17 @@ export default function Home() {
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        setData(data);
+        if (data.clothes && Array.isArray(data.clothes)) {
+          setData(data.clothes);
+        } else {
+          console.error('Expected an array inside the "clothes" key, but received:', data);
+          setData([]);
+        }
       })
       .catch(error => console.error('Error fetching data:', error));
-    setBgColor("pink");
   }, []);
+  
+  
 
   const handleClick = (color) => {
     setBgColor(color);
@@ -40,6 +46,20 @@ export default function Home() {
             {item.color.charAt(0).toUpperCase() + item.color.slice(1)}
           </button>
         ))}
+      </div>
+
+      <div className="mt-4 text-white">
+        {data ? (
+          <ul>
+            {data.map((item, index) => (
+              <li key={index} className="py-2">
+                {item.name} - {item.type}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>Loading data...</p>
+        )}
       </div>
     </div>
   );
