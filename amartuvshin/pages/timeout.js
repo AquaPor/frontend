@@ -12,6 +12,9 @@ export default function Counter() {
   }, []);
 
   return (
-        <p>{count}</p>
+    <div className='w-full h-[100vh] flex justify-center items-center text-4xl text-pink-400' >
+          <p>{count}</p>
+    </div>
+        
   );
 }
