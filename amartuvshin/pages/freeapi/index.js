@@ -1,11 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function RickAndMorty() {
     const [characters, setCharacters] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const router = useRouter();
 
     useEffect(() => {
         async function fetchCharacters() {
@@ -55,7 +57,7 @@ export default function RickAndMorty() {
                     <p className="text-blue-300 text-lg">Explore characters from across dimensions</p>
                 </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md-grid-cols-3 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {characters.map((character) => (
                         <div 
                             key={character.id} 
@@ -100,7 +102,7 @@ export default function RickAndMorty() {
                                 
                                 <button 
                                     className="w-full py-2 px-4 bg-green-600 hover:bg-green-500 text-white rounded transition-colors duration-200 font-medium flex items-center justify-center mt-auto"
-                                    onClick={() => window.open(character.url, '_blank')}
+                                    onClick={() => router.push(`/freeapi/${character.id}`)}
                                 >
                                     <span>View Details</span>
                                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
