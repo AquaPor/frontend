@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image'; // Import Image from next/image
 
 export default function CharacterDetail() {
     const [character, setCharacter] = useState(null);
@@ -71,10 +72,12 @@ export default function CharacterDetail() {
                 <div className="bg-gray-800 rounded-lg overflow-hidden shadow-2xl transform transition-all duration-300 hover:scale-102">
                     <div className="relative w-full h-96 overflow-hidden">
                         <div className="absolute inset-0 bg-green-500 opacity-20 animate-pulse"></div>
-                        <img 
-                            className="w-full h-full object-cover" 
-                            src={character.image} 
-                            alt={character.name} 
+                        <Image
+                            className="w-full h-full object-cover"
+                            src={character.image}
+                            alt={character.name}
+                            layout="fill" // Important to ensure the image covers the div properly
+                            objectFit="cover" // Ensures the image maintains the correct aspect ratio
                         />
                     </div>
                     
