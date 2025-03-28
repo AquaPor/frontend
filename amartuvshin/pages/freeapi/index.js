@@ -69,8 +69,8 @@ export default function RickAndMorty() {
                                     src={character.image} 
                                     alt={character.name} 
                                     className="w-full h-full object-cover" 
-                                    layout="fill" // Important to make sure the image covers the div
-                                    objectFit="cover" // Maintains the aspect ratio of the image
+                                    fill // This replaces `layout="fill"`
+                                    style={{ objectFit: 'cover' }} // Ensures the image covers the container
                                 />
                                 <div className="absolute top-2 right-2 px-2 py-1 rounded-full text-xs font-medium text-white"
                                     style={{
