@@ -7,7 +7,6 @@ export default function Home() {
   const handleClick = () => {
     setClickCount(clickCount + 1);
     setPopoverVisible(true);
-
   };
 
   const closePopover = () => {
@@ -26,7 +25,7 @@ export default function Home() {
 
       <div className="h-[10%] pt-6 w-full flex justify-center items-center px-6 text-lg text-black font-medium">
         <p className="text-center">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s 
           <br></br>
           standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
         </p>
@@ -76,9 +75,9 @@ export default function Home() {
 
         <div className="w-full sm:w-[45%] md:w-[30%] lg:w-[30%] h-[300px] bg-white text-black flex flex-col justify-center items-center rounded-lg shadow-lg p-6">
           <p className="text-2xl font-bold mb-4 text-black">Customer Reviews</p>
-          <p className="text-lg mb-2">"Amazing experience! I highly recommend this company." - Sarah</p>
-          <p className="text-lg mb-2">"Quick and reliable, I will definitely shop here again!" - James</p>
-          <p className="text-lg">"Great service and fantastic products. 5 stars!" - Emily</p>
+          <p className="text-lg mb-2">&quot;Amazing experience! I highly recommend this company.&quot; - Sarah</p>
+          <p className="text-lg mb-2">&quot;Quick and reliable, I will definitely shop here again!&quot; - James</p>
+          <p className="text-lg">&quot;Great service and fantastic products. 5 stars!&quot; - Emily</p>
         </div>
       </div>
 

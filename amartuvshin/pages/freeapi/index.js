@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -64,10 +65,12 @@ export default function RickAndMorty() {
                             className="border-4 border-green-500 rounded-lg overflow-hidden bg-gray-900 h-full flex flex-col"
                         >
                             <div className="relative w-full h-48">
-                                <img 
+                                <Image 
                                     src={character.image} 
                                     alt={character.name} 
-                                    className="w-full h-full object-cover" 
+                                    fill
+                                    className="object-cover" 
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
                                 <div className="absolute top-2 right-2 px-2 py-1 rounded-full text-xs font-medium text-white"
                                     style={{
