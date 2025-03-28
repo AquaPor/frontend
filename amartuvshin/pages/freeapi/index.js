@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image'; // Import Image from next/image
 
 export default function RickAndMorty() {
     const [characters, setCharacters] = useState([]);
@@ -65,12 +64,10 @@ export default function RickAndMorty() {
                             className="border-4 border-green-500 rounded-lg overflow-hidden bg-gray-900 h-full flex flex-col"
                         >
                             <div className="relative w-full h-48">
-                                <Image 
+                                <img 
                                     src={character.image} 
                                     alt={character.name} 
                                     className="w-full h-full object-cover" 
-                                    fill // This replaces `layout="fill"`
-                                    style={{ objectFit: 'cover' }} // Ensures the image covers the container
                                 />
                                 <div className="absolute top-2 right-2 px-2 py-1 rounded-full text-xs font-medium text-white"
                                     style={{
