@@ -65,13 +65,13 @@ export default function RickAndMorty() {
                             className="border-4 border-green-500 rounded-lg overflow-hidden bg-gray-900 h-full flex flex-col"
                         >
                             <div className="relative w-full h-48">
-                            <Image 
-    src={character.image} 
-    alt={character.name} 
-    layout="fill"
-    objectFit="cover"
-    priority
-/>
+                                <Image 
+                                    src={character.image} 
+                                    alt={character.name} 
+                                    fill
+                                    style={{ objectFit: 'cover' }}
+                                    priority
+                                />
 
                                 <div className="absolute top-2 right-2 px-2 py-1 rounded-full text-xs font-medium text-white"
                                     style={{
